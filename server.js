@@ -3,6 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const sequelize = require('./config/db');
 const AuthRoutes = require('./routes/authRoutes');
+const authMiddleware = require('./Middleware/authMiddleware');
+
+const User = require('./Models/User');
 
 const app = express();
 app.use(express.json());
@@ -22,6 +25,16 @@ sequelize.authenticate().then(()=>{
     console.error('Error: ',err);
 
 });
+
+
+app.get('/profile',authMiddleware, (req,res)=>{
+
+    res.json({
+        'Success': true,
+        'Message': 'access granted',
+        'user': req.user
+    });
+})
 
 const PORT = process.env.PORT || 5000;
 
