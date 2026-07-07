@@ -4,13 +4,17 @@ const express = require('express');
 const sequelize = require('./config/db');
 const AuthRoutes = require('./routes/authRoutes');
 const authMiddleware = require('./Middleware/authMiddleware');
+const CourseRoutes = require('./routes/courseRoutes');
 
 const User = require('./Models/User');
+const Course = require('./Models/Course');
 
 const app = express();
 app.use(express.json());
 
 app.use('/api/auth',AuthRoutes);
+
+app.use('/api/course',CourseRoutes);
 
 
 app.get('/',(req,res)=>{
