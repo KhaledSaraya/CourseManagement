@@ -5,6 +5,7 @@ const sequelize = require('./config/db');
 const AuthRoutes = require('./routes/authRoutes');
 const authMiddleware = require('./Middleware/authMiddleware');
 const CourseRoutes = require('./routes/courseRoutes');
+const EnrollmentRoutes = require('./routes/enrollmentRoutes')
 
 const User = require('./Models/User');
 const Course = require('./Models/Course');
@@ -16,6 +17,7 @@ app.use('/api/auth',AuthRoutes);
 
 app.use('/api/course',CourseRoutes);
 
+app.use('/api/enrollment',EnrollmentRoutes);
 
 app.get('/',(req,res)=>{
     res.send('Server is running correctly');
@@ -29,16 +31,6 @@ sequelize.authenticate().then(()=>{
     console.error('Error: ',err);
 
 });
-
-
-app.get('/profile',authMiddleware, (req,res)=>{
-
-    res.json({
-        'Success': true,
-        'Message': 'access granted',
-        'user': req.user
-    });
-})
 
 const PORT = process.env.PORT || 5000;
 

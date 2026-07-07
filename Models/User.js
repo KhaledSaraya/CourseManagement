@@ -1,6 +1,5 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../config/db');
-const { Types } = require('mysql2');
 
 const User= sequelize.define('User',
     {
