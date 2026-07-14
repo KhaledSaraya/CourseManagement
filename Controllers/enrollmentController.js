@@ -56,7 +56,7 @@ exports.enrollCourse = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': error.message
+            'message': error.message
         });        
         
     }
@@ -90,7 +90,7 @@ exports.myCourses = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': error.message
+            'message': error.message
         });
         
     }
@@ -118,7 +118,7 @@ exports.getAllEnrollments = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': error.message
+            'message': error.message
         });
         
     }
@@ -157,7 +157,7 @@ exports.deleteEnrollment = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': error.message
+            'message': error.message
         });
         
     }

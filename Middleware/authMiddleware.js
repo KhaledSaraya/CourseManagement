@@ -10,8 +10,8 @@ const authMiddleware = (req,res,next) => {
 
         return res.status(401).json({
 
-            'Success': false,
-            'Message': 'Access denied. No token provided'
+            'success': false,
+            'message': 'Access denied. No token provided'
         });
         
     }
@@ -30,8 +30,8 @@ const authMiddleware = (req,res,next) => {
 
         return res.status(500).json({
 
-            'Success': false,
-            'Message': 'Invalid token.'
+            'success': false,
+            'message': 'Invalid token.'
 
         });
         

@@ -10,7 +10,7 @@ exports.getAllCourses = async (req,res) => {
         const courses = await Course.findAll();
 
         return res.status(200).json({
-            'Success': true,
+            'success': true,
             'data': courses
         });
 
@@ -21,7 +21,7 @@ exports.getAllCourses = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': error.message
+            'message': error.message
         });
     }
 };
@@ -37,14 +37,14 @@ exports.getCourseById = async (req,res) => {
             return res.status(404).json({
 
                 'success': false,
-                'Message': 'Course not found'
+                'message': 'Course not found'
 
             });
             
         }
 
         return res.status(200).json({
-            'Success': true,
+            'success': true,
             'data': course
         });
 
@@ -55,7 +55,7 @@ exports.getCourseById = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': 'Server Error'
+            'message': 'Server Error'
         });
     }    
     
@@ -71,8 +71,8 @@ exports.createCourse = async (req,res) => {
         if (!title || !instructor) {
         
             return res.status(400).json({
-            'Success': false,
-            'Message': 'Title and instructor are required.'
+            'success': false,
+            'message': 'Title and instructor are required.'
             });
     
         }
@@ -87,8 +87,8 @@ exports.createCourse = async (req,res) => {
         
 
         return res.status(200).json({
-            'Success': true,
-            'Message': 'Course created successfully'
+            'success': true,
+            'message': 'Course created successfully'
         });
 
 
@@ -99,7 +99,7 @@ exports.createCourse = async (req,res) => {
 
         return res.status(500).json({
             'success': false,
-            'Message': 'Server Error'
+            'message': 'Server Error'
         });
     }    
     
@@ -115,7 +115,7 @@ exports.updateCourse = async (req,res) => {
             return res.status(404).json({
 
                 'success': false,
-                'Message': 'Course not found'
+                'message': 'Course not found'
 
             });   
         }
@@ -123,8 +123,8 @@ exports.updateCourse = async (req,res) => {
         await course.update(req.body);
 
         return res.status(200).json({
-            'Success': true,
-            'Message': 'Course updated successfully',
+            'success': true,
+            'message': 'Course updated successfully',
             'data': course
         });
 
@@ -134,7 +134,7 @@ exports.updateCourse = async (req,res) => {
         return res.status(500).json({
 
             'success': false,
-            'Message': error.message
+            'message': error.message
         });
         
     }
@@ -153,7 +153,7 @@ exports.deleteCourse = async (req,res) => {
             return res.status(404).json({
 
                 'success': false,
-                'Message': 'Course not fousnd'
+                'message': 'Course not fousnd'
 
             });   
         }
@@ -161,8 +161,8 @@ exports.deleteCourse = async (req,res) => {
         await course.destroy();
 
         return res.status(200).json({
-            'Success': true,
-            'Message': 'Course deleted successfully'
+            'success': true,
+            'message': 'Course deleted successfully'
         });
         
         

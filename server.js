@@ -6,11 +6,14 @@ const AuthRoutes = require('./routes/authRoutes');
 const authMiddleware = require('./Middleware/authMiddleware');
 const CourseRoutes = require('./routes/courseRoutes');
 const EnrollmentRoutes = require('./routes/enrollmentRoutes')
+const cors = require("cors");
 
 const User = require('./Models/User');
 const Course = require('./Models/Course');
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth',AuthRoutes);

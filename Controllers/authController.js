@@ -10,8 +10,8 @@ exports.register = async (req,res) => {
         if (!name || !email || !password) {
 
             return res.status(400).json({
-            'Success': false,
-            'Message': 'Fill all required fields'
+            'success': false,
+            'message': 'Fill all required fields'
             });
     
         }
@@ -25,8 +25,8 @@ exports.register = async (req,res) => {
         if(existingUser)
         {
             return res.status(409).json({
-            'Success': false,
-            'Message': 'User already exists'
+            'success': false,
+            'message': 'User already exists'
             });
         }
 
@@ -41,8 +41,8 @@ exports.register = async (req,res) => {
         });
 
         return res.status(200).json({
-            'Success': true,
-            'Message': 'User registered successfully'
+            'success': true,
+            'message': 'User registered successfully'
         });     
 
         
@@ -51,8 +51,8 @@ exports.register = async (req,res) => {
         console.error(error);
 
         return res.status(500).json({
-            'Success': false,
-            'Message': 'Server Error'
+            'success': false,
+            'message': 'Server Error'
         })
         
     }
@@ -67,8 +67,8 @@ exports.login = async (req,res) => {
         if (!email || !password) {
 
             return res.status(400).json({
-            'Success': false,
-            'Message': 'Email and password are required'
+            'success': false,
+            'message': 'Email and password are required'
             });
     
         }
@@ -82,8 +82,8 @@ exports.login = async (req,res) => {
         if(!existingUser)
         {
             return res.status(401).json({
-            'Success': false,
-            'Message': 'Invalid email or password.'
+            'success': false,
+            'message': 'Invalid email or password.'
             });
         }
 
@@ -92,8 +92,8 @@ exports.login = async (req,res) => {
         if (!isPassword) {
 
             return res.status(401).json({
-            'Success': false,
-            'Message': 'Invalid email or password.'
+            'success': false,
+            'message': 'Invalid email or password.'
             });
         }
 
@@ -111,8 +111,8 @@ exports.login = async (req,res) => {
 
 
         return res.status(200).json({
-            'Success': true,
-            'Message': 'Login successful.',
+            'success': true,
+            'message': 'Login successful.',
             'Token': token,
             'User': {
                 id: existingUser.id,
@@ -126,8 +126,8 @@ exports.login = async (req,res) => {
         console.error(error);
 
         return res.status(500).json({
-            'Success': false,
-            'Message': 'Server Error'
+            'success': false,
+            'message': 'Server Error'
         });
                 
     }
